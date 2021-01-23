@@ -1,0 +1,49 @@
+{
+  "name": "musicplayer",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "firebase": "^8.2.4",
+    "firebase-tools": "^9.2.2",
+    "react": "^17.0.1",
+    "react-audio-player": "^0.14.0",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts --max_old_space_size=4096 build && rm -rf www && mv build www",
+    "lint": "eslint src",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "deploy": "yarn build && rm ./www/static/js/*.map && firebase deploy",
+    "deployWindows": "yarn build && del www\\static\\js\\*.map && firebase deploy",
+    "android": "yarn build && cordova run android",
+    "ios": "yarn build && cordova run ios",
+    "clean-build-ios": "rm -rf node_modules package-lock.json && npm i && npm run build && cordova prepare ios && open platforms/ios/YourWheeler.xcworkspace"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
