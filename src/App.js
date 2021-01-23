@@ -90,7 +90,7 @@ class Landing extends Component {
                 }}
               >
                 <span>Song List</span>
-                <span>10 Songs</span>
+                <span> Songs</span>
               </div>
             </Paper>
 
