@@ -5,6 +5,8 @@ import Paper from "@material-ui/core/Paper";
 import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import GetApp from "@material-ui/icons/GetApp";
 import Avatar from "@material-ui/core/Avatar";
+import AudioPlayer from "react-h5-audio-player";
+import "react-h5-audio-player/lib/styles.css";
 
 const styles = {};
 
@@ -48,8 +50,6 @@ class Landing extends Component {
     });
   };
   render() {
-    console.log(this.state.songDetails);
-    const { djWaleSongDetails } = this.state;
     return (
       <div>
         <div
@@ -71,7 +71,7 @@ class Landing extends Component {
               flexDirection: "column",
             }}
           >
-            <Paper
+            {/* <Paper
               elevation={1}
               style={{
                 width: "86%",
@@ -89,48 +89,51 @@ class Landing extends Component {
                   justifyContent: "space-around",
                 }}
               >
-                <span>Song List</span>
-                <span> Songs</span>
+                <span>Lets Play</span>
+                <span> </span>
               </div>
-            </Paper>
+            </Paper> */}
+            <AudioPlayer
+              showDownloadProgress
+              header="DJ Waley Babu"
+              style={{ marginTop: "20px" }}
+              src="/djwale.mp3"
+              onPlay={(e) => {
+                e.preventDefault();
+                this.handleClickOnPlay("djWaleSongDetails");
+              }}
+            />
 
-            <ReactAudioPlayer
-              src="/djwale.mp3"
-              controls
-              style={{ margin: "10px 0px" }}
-              onPlay={(e) => {
-                e.preventDefault();
-                this.handleClickOnPlay("djWaleSongDetails");
-              }}
-            />
-            <ReactAudioPlayer
+            <AudioPlayer
+              header="Party All Night"
+              style={{ marginTop: "20px" }}
               src="/partyAll.mp3"
-              controls
-              style={{ margin: "10px 0px" }}
               onPlay={(e) => {
                 e.preventDefault();
                 this.handleClickOnPlay("partyAllNightSongDetails");
               }}
             />
-            <ReactAudioPlayer
+            <AudioPlayer
+              header="DJ Waley Babu"
+              style={{ marginTop: "20px" }}
               src="/djwale.mp3"
-              controls
-              style={{ margin: "10px 0px" }}
               onPlay={(e) => {
                 e.preventDefault();
                 this.handleClickOnPlay("djWaleSongDetails");
               }}
             />
-            <ReactAudioPlayer
+
+            <AudioPlayer
+              header="Party All Night"
+              style={{ marginTop: "20px" }}
               src="/partyAll.mp3"
-              controls
-              style={{ margin: "10px 0px" }}
               onPlay={(e) => {
                 e.preventDefault();
                 this.handleClickOnPlay("partyAllNightSongDetails");
               }}
             />
-            <ReactAudioPlayer
+
+            {/* <ReactAudioPlayer
               src="/djwale.mp3"
               controls
               style={{ margin: "10px 0px" }}
@@ -138,25 +141,7 @@ class Landing extends Component {
                 e.preventDefault();
                 this.handleClickOnPlay("djWaleSongDetails");
               }}
-            />
-            <ReactAudioPlayer
-              src="/partyAll.mp3"
-              controls
-              style={{ margin: "10px 0px" }}
-              onPlay={(e) => {
-                e.preventDefault();
-                this.handleClickOnPlay("partyAllNightSongDetails");
-              }}
-            />
-            <ReactAudioPlayer
-              src="/djwale.mp3"
-              controls
-              style={{ margin: "10px 0px" }}
-              onPlay={(e) => {
-                e.preventDefault();
-                this.handleClickOnPlay("djWaleSongDetails");
-              }}
-            />
+            /> */}
           </div>
           <div
             style={{
